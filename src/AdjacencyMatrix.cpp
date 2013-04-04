@@ -1,13 +1,7 @@
-#include "include/DataStructure.h"
+#include "include/AdjacencyMatrix.h"
 
-void AdjacencyMatrix::add(void * data){
-
-}
-
-bool AdjacencyMatrix::remove(void * data){
-
-}
-
-bool AdjacencyMatrix::search(void * data){
-
+int main(void){
+	AdjacencyMatrix<int> am;
+	am.addEdge(1,2);
+	return 0;
 }
