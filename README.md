@@ -1,0 +1,4 @@
+CleanGraph
+==========
+
+Graphs in C++.
