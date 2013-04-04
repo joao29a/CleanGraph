@@ -1,13 +1,9 @@
 #include "include/HeapTree.h"
+template <> HeapTree<int>::HeapTree() {}
 
-void HeapTree::add(void * data){
-
-}
-
-bool HeapTree::remove(void * data){
-
-}
-
-void * HeapTree::search(void * data){
-
+int main(void){
+	HeapTree<int> Struct;
+	Struct.add(3);
+	cout << (int)Struct.remove(NULL);
+	return 0;
 }

@@ -1,7 +1,8 @@
 
+template<class Data>
 class DataStructure{
 public: 
-	virtual void add(void *); 
-	virtual bool remove(void *); 
-	virtual void * search(void *); 
-}
+	virtual void add(Data) {} 
+	virtual Data remove(Data) {} 
+	virtual Data search(Data) {} 
+};
