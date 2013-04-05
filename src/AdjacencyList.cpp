@@ -2,7 +2,6 @@
 
 int main(){
 	AdjacencyList<int> List;
-	List.addEdge(1,2);
-	//List.print();
+	List.addEdge(1,2,5);
 	return 0;
 }
