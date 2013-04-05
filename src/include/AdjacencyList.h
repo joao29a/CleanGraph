@@ -26,19 +26,8 @@ void AdjacencyList<Data>::addEdge(Data vertexA, Data vertexB, int weight){
 
 template <class Data>
 void AdjacencyList<Data>::removeEdge(Data vertexA, Data vertexB){
-	list<edge_ <Data>> edgesOfA = graph[vertexA];
-	edgesOfA.remove(edge_ <Data>(vertexB,0));
+	graph[vertexA].remove(edge_ <Data>(vertexB,0));
 }
-
-/*template <class Data>
-void AdjacencyList<Data>::printGraph(){
-        for (typename List::const_iterator it = graph.begin(); it!=graph.end(); ++it){
-                cout << "Vértice: " << it->first << endl << "Aresta: " << endl;
-                for (typename Edges::const_iterator lit = it->second.begin(); lit != it->second.end(); ++lit){
-                        cout << *lit << " | ";
-                }
-        }
-}*/
 
 template <class Data>
 list<edge_<Data>> AdjacencyList<Data>::getEdges(Data vertex){
