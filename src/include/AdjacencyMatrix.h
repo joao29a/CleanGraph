@@ -13,14 +13,14 @@ private:
 	Vertices matrix;  
 public: 
 	AdjacencyMatrix(){};
-	void addEdge(Data,Data); 
+	void addEdge(Data,Data,int); 
 	void remove(Data,Data); 
-	bool search(Data,Data); 
+	int search(Data,Data); 
 };
 
 template <class Data>
-void AdjacencyMatrix<Data>::addEdge(Data vertex, Data edge){
-	matrix[vertex][edge] = 1;
+void AdjacencyMatrix<Data>::addEdge(Data vertex, Data edge,int weight){
+	matrix[vertex][edge] = weight;
 }
 
 template <class Data>
@@ -29,7 +29,7 @@ void AdjacencyMatrix<Data>::remove(Data vertex, Data edge){
 }
 
 template <class Data>
-bool AdjacencyMatrix<Data>::search(Data vertex,Data edge){
+int AdjacencyMatrix<Data>::search(Data vertex,Data edge){
 	return  matrix[vertex][edge];
 }
 

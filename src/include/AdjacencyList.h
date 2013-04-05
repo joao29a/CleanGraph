@@ -1,39 +1,46 @@
 #include "DataStructure.h"
 #include <list>
-#include <map>
+#include <unordered_map>
 using namespace std;
 
 template <class Data>
 class AdjacencyList: public DataStructure<Data>{
 private:
-	struct edge_{
-		Data edge;
-		int weight;
-	};
-
-	typedef list<edge_> Edges;
-	typedef map<Data,Edges> List;
+	typedef list<edge_<Data>> Edges;
+	typedef unordered_map<Data,Edges> List;
 	List graph;
 public:
 	AdjacencyList(){};
 	void addEdge(Data,Data,int);
-	//void remove(Data,Data);
-	//bool search(Data,Data);
+	void removeEdge(Data,Data);
+	list<edge_<Data>> getEdges(Data);
+	list<Data> getVertexs();
 };
 
 template <class Data>
-void AdjacencyList<Data>::addEdge(Data vertex, Data edge, int weight){
-	edge_ EDGE;
-	EDGE.edge=edge;
-	EDGE.weight=weight;
-	graph[vertex].push_back(EDGE);
+void AdjacencyList<Data>::addEdge(Data vertexA, Data vertexB, int weight){
+	edge_<Data> edge(vertexB,weight);
+	graph[vertexA].push_back(edge);
 }
 
-/*template <class Data>
-void AdjacencyList<Data>::remove(Data vertex, Data edge){
-	graph[vertex].remove
+
+template <class Data>
+void AdjacencyList<Data>::removeEdge(Data vertexA, Data vertexB){
+	list<edge_ <Data>> edgesOfA = graph[vertexA];
+	edgesOfA.remove(edge_ <Data>(vertexB,0));
 }
 
 template <class Data>
-void AdjacencyList<Data>::search(Data vertex, Data edge){
-}*/
+list<edge_<Data>> AdjacencyList<Data>::getEdges(Data vertex){
+	return (graph[vertex]);
+}
+
+template <class Data>
+list<Data> AdjacencyList<Data>::getVertexs(){
+	        list<Data> keys;
+
+                for(auto kv : graph) {
+                        keys.push_back(kv.first);
+                }
+                return keys;
+}

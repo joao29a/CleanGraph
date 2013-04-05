@@ -11,8 +11,10 @@ private:
 public:
 	GraphManipulator(DataStructure<string> *ds) { this->DS = ds; };
 	void addVertex(string);
-	void addEdge(string, string);
-	bool hasEdge(string, string);
+	void addEdge(string, string,int);
+	void removeEdge(string,string);
+	list<edge_<string>> getEdges(string);
+	list<string> getVertexs();
 };
 
 #endif

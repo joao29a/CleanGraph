@@ -1,17 +1,22 @@
-
 #include "include/GraphManipulator.h"
 #include <iostream>
 
 void GraphManipulator::addVertex(string vertexA){
-	return DS->addEdge(vertexA,"NULL");
+	DS->addEdge(vertexA,string("NULL"),-9999);
 }
 
-void GraphManipulator::addEdge(string vertexA, string vertexB){
-	return DS->addEdge(vertexA,vertexB);
+void GraphManipulator::addEdge(string vertexA, string vertexB, int weight){
+	DS->addEdge(vertexA,vertexB,weight);
 }
 
-bool GraphManipulator::hasEdge(string vertexA, string vertexB){
-	return DS->search(vertexA,vertexB);
+list<edge_ <string>> GraphManipulator::getEdges(string vertexA){
+	return DS->getEdges(vertexA);
 }
 
+list<string> GraphManipulator::getVertexs(){
+	return DS->getVertexs();
+}
 
+void GraphManipulator::removeEdge(string vertexA,string vertexB){
+	DS->removeEdge(vertexA,vertexB);
+}
