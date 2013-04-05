@@ -1,13 +1,15 @@
+#ifndef AMATRIX_H
+#define AMATRIX_H
 #include "DataStructure.h"
-#include <map>  
+#include <unordered_map>  
 
 using namespace std;
 
 template <class Data>
 class AdjacencyMatrix: public DataStructure<Data>{
 private:
-	typedef map<Data,int> Edge;
-	typedef map<Data, Edge> Vertices;
+	typedef unordered_map<Data,int> Edge;
+	typedef unordered_map<Data, Edge> Vertices;
 	Vertices matrix;  
 public: 
 	AdjacencyMatrix(){};
@@ -28,5 +30,9 @@ void AdjacencyMatrix<Data>::remove(Data vertex, Data edge){
 
 template <class Data>
 bool AdjacencyMatrix<Data>::search(Data vertex,Data edge){
-	return (bool) matrix[vertex][edge];
+	return  matrix[vertex][edge];
 }
+
+#endif
+
+
