@@ -1,30 +1,35 @@
+#include "include/FileIO.h"
 #include "include/printg.h"
 #include "include/AdjacencyList.h" 
 #include "include/DataStructure.h"
 
+using namespace std;
+
 void printVertex(string vertex){
-	cout << vertex << endl;
+	cout << "Vertex " << vertex << ": ";
 }
 
 void printEdges(string vertexA, edge_<string> edge){
-	cout << vertexA << " " << edge.getVertex() << endl;
+	cout << edge.getVertex() << " | ";
 }
 
 void printg(GraphManipulator *gm){
 	list<string> vertexs = gm->getVertexs();
 
-	for (std::list<string>::iterator itVertexs = vertexs.begin(); 
+	for (list<string>::iterator itVertexs = vertexs.begin(); 
 				itVertexs != vertexs.end(); itVertexs++){
 
 		list<edge_ <string>> edgesOf = gm->getEdges(*itVertexs);
-
-		for (std::list<edge_ <string>>::iterator 
+		
+		printVertex(*itVertexs);	
+	
+		for (list<edge_ <string>>::iterator 
 				itEdges = edgesOf.begin();
                                 itEdges != edgesOf.end(); itEdges++){
-			
+
 			printEdges(*itVertexs,*itEdges);
-						
-		}		
+		}
+		cout << endl;
 	}
 }
 
@@ -32,9 +37,7 @@ void printg(GraphManipulator *gm){
 int main(void){
 	AdjacencyList<string>* List = new AdjacencyList<string>();
         GraphManipulator* gm = new GraphManipulator(List);
-        string teste1("1");
-        string teste2("2");
-        gm->addEdge(teste1,teste2,3);
-	gm->addEdge(teste2,teste1,3);
+	FileIO io("graphs/ex1");
+	io.fillStructureWithDataInFile(gm);
 	printg(gm);
 }

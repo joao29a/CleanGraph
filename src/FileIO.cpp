@@ -33,9 +33,10 @@ void FileIO::processVetex(GraphManipulator* g){
 void FileIO::processEdges(GraphManipulator* g){
 	char a[80];
 	char b[80];
+	char c[80];
 	for (vector<string>::iterator it = edges.begin(); it!=edges.end(); ++it) {
-		sscanf((*it).c_str(),"%s %s",a,b);
-		g->addEdge(a,b);
+		sscanf((*it).c_str(),"%s %s %s",a,b,c);
+		g->addEdge(a,b,c);
 	}
 }
 

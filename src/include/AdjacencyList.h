@@ -11,14 +11,20 @@ private:
 	List graph;
 public:
 	AdjacencyList(){};
-	void addEdge(Data,Data,int);
+	void addVertex(Data);
+	void addEdge(Data,Data,Data);
 	void removeEdge(Data,Data);
 	list<edge_<Data>> getEdges(Data);
 	list<Data> getVertexs();
 };
 
 template <class Data>
-void AdjacencyList<Data>::addEdge(Data vertexA, Data vertexB, int weight){
+void AdjacencyList<Data>::addVertex(Data vertexA){
+	graph[vertexA];
+}
+
+template <class Data>
+void AdjacencyList<Data>::addEdge(Data vertexA, Data vertexB, Data weight){
 	edge_<Data> edge(vertexB,weight);
 	graph[vertexA].push_back(edge);
 }
@@ -39,7 +45,7 @@ list<Data> AdjacencyList<Data>::getVertexs(){
 	        list<Data> keys;
 
                 for(auto kv : graph) {
-                        keys.push_back(kv.first);
+                        keys.push_front(kv.first);
                 }
                 return keys;
 }

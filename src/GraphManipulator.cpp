@@ -2,10 +2,10 @@
 #include <iostream>
 
 void GraphManipulator::addVertex(string vertexA){
-	DS->addEdge(vertexA,string("NULL"),-9999);
+	DS->addVertex(vertexA);
 }
 
-void GraphManipulator::addEdge(string vertexA, string vertexB, int weight){
+void GraphManipulator::addEdge(string vertexA, string vertexB, string weight){
 	DS->addEdge(vertexA,vertexB,weight);
 }
 
