@@ -12,7 +12,7 @@ private:
 public:
 	AdjacencyList(){};
 	void addVertex(Data);
-	void addEdge(Data,Data,Data);
+	void addEdge(Data,Data,int);
 	void removeEdge(Data,Data);
 	list<edge_<Data>> getEdges(Data);
 	list<Data> getVertexs();
@@ -24,7 +24,7 @@ void AdjacencyList<Data>::addVertex(Data vertexA){
 }
 
 template <class Data>
-void AdjacencyList<Data>::addEdge(Data vertexA, Data vertexB, Data weight){
+void AdjacencyList<Data>::addEdge(Data vertexA, Data vertexB, int weight){
 	edge_<Data> edge(vertexB,weight);
 	graph[vertexA].push_back(edge);
 }

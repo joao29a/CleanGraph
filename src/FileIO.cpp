@@ -36,7 +36,7 @@ void FileIO::processEdges(GraphManipulator* g){
 	char c[80];
 	for (vector<string>::iterator it = edges.begin(); it!=edges.end(); ++it) {
 		sscanf((*it).c_str(),"%s %s %s",a,b,c);
-		g->addEdge(a,b,c);
+		g->addEdge(a,b,atoi(c));
 	}
 }
 
