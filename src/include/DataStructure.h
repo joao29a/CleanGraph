@@ -10,7 +10,7 @@ private:
 	Data vertex;
 	int weight;
 public:
-	edge_(Data v, int w){ vertex = v; weight = w;};
+	edge_(Data v, int w){ setVertex(v); setWeight(w);};
 	Data getVertex() const { return vertex; };
 	void setVertex(Data v){ vertex = v; };
 	int getWeight(){ return weight; };
@@ -21,6 +21,19 @@ public:
 	}
 };
 
+template<class Data>
+class vertex_{
+private:
+	Data value;
+public:
+	vertex_(Data v){ setValue(v); };
+	Data getValue(){ return value; };
+	void setValue(Data v){ value = v; };
+	// vertex == vertex
+	bool operator==(const vertex_<Data> &other){
+		return (other.getValue() == this->value);
+	};
+};
 
 template<class Data>
 class DataStructure{
