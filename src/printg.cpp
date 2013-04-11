@@ -5,7 +5,7 @@
 
 using namespace std;
 
-void printVertex(string vertex){
+/*void printVertex(string vertex){
 	cout << "Vertex " << vertex << ": ";
 }
 
@@ -31,13 +31,13 @@ void printg(GraphManipulator *gm){
 		}
 		cout << endl;
 	}
-}
+}*/
 
 
 int main(void){
 	AdjacencyList<string>* List = new AdjacencyList<string>();
-        GraphManipulator* gm = new GraphManipulator(List);
+        /*GraphManipulator* gm = new GraphManipulator(List);
 	FileIO io("graphs/ex1");
 	io.fillStructureWithDataInFile(gm);
-	printg(gm);
+	printg(gm);*/
 }

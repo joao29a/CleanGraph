@@ -7,7 +7,7 @@ template <class Data>
 class AdjacencyList: public DataStructure<Data>{
 private:
 	typedef list<edge_<Data>> Edges;
-	typedef unordered_map<Data,Edges> List;
+	typedef unordered_map<vertex_<Data>,Edges> List;
 	List graph;
 public:
 	AdjacencyList(){};
