@@ -13,8 +13,8 @@ public:
 	void addVertex(string);
 	void addEdge(string, string, int);
 	void removeEdge(string,string);
-	list<edge_<string>> getEdges(string);
-	list<string> getVertexs();
+	list<edge_<string>> getEdges(vertex_<string>);
+	list<vertex_<string>> getVertexs();
 };
 
 #endif

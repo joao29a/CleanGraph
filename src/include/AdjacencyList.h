@@ -6,21 +6,21 @@ using namespace std;
 template <class Data>
 class AdjacencyList: public DataStructure<Data>{
 private:
-	typedef list<edge_<Data>> Edges;
-	typedef unordered_map<vertex_<Data>,Edges> List;
+	typedef list<edge_<Data> > Edges;
+	typedef unordered_map<vertex_<Data>,hash<Data>,Edges> List;
 	List graph;
 public:
 	AdjacencyList(){};
 	void addVertex(Data);
 	void addEdge(Data,Data,int);
 	void removeEdge(Data,Data);
-	list<edge_<Data>> getEdges(Data);
-	list<Data> getVertexs();
+	list<edge_<Data>> getEdges(vertex_<Data>);
+	list<vertex_<Data>> getVertexs();
 };
 
 template <class Data>
 void AdjacencyList<Data>::addVertex(Data vertexA){
-	graph[vertexA];
+	graph[vertex_<Data>(vertexA)];
 }
 
 template <class Data>
@@ -36,13 +36,13 @@ void AdjacencyList<Data>::removeEdge(Data vertexA, Data vertexB){
 }
 
 template <class Data>
-list<edge_<Data>> AdjacencyList<Data>::getEdges(Data vertex){
+list<edge_<Data>> AdjacencyList<Data>::getEdges(vertex_<Data> vertex){
 	return (graph[vertex]);
 }
 
 template <class Data>
-list<Data> AdjacencyList<Data>::getVertexs(){
-	        list<Data> keys;
+list<vertex_<Data>> AdjacencyList<Data>::getVertexs(){
+	        list<vertex_<Data>> keys;
 
                 for(auto kv : graph) {
                         keys.push_front(kv.first);

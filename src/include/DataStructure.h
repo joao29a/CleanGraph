@@ -30,7 +30,7 @@ public:
 	Data getValue(){ return value; };
 	void setValue(Data v){ value = v; };
 	// vertex == vertex
-	bool operator==(const vertex_<Data> &other){
+	bool operator==(const vertex_<Data> &other) const{
 		return (other.getValue() == this->value);
 	};
 };
@@ -41,8 +41,8 @@ public:
 	virtual void addVertex(Data) {};
 	virtual void addEdge(Data,Data,int) {}; 
 	virtual void removeEdge(Data,Data) {};
-	virtual list<edge_<Data>> getEdges(Data){}; 
-	virtual list<Data> getVertexs(){};
+	virtual list<edge_<Data>> getEdges(vertex_<Data>){}; 
+	virtual list<vertex_<Data>> getVertexs(){};
 };
 
 #endif

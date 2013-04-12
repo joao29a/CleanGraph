@@ -1,3 +1,4 @@
+#include "include/DataStructure.h"
 #include "include/GraphManipulator.h"
 #include <iostream>
 
@@ -9,11 +10,11 @@ void GraphManipulator::addEdge(string vertexA, string vertexB, int weight){
 	DS->addEdge(vertexA,vertexB,weight);
 }
 
-list<edge_ <string>> GraphManipulator::getEdges(string vertexA){
+list<edge_ <string>> GraphManipulator::getEdges(vertex_<string> vertexA){
 	return DS->getEdges(vertexA);
 }
 
-list<string> GraphManipulator::getVertexs(){
+list<vertex_<string>> GraphManipulator::getVertexs(){
 	return DS->getVertexs();
 }
 
