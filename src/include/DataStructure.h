@@ -1,6 +1,7 @@
 #ifndef DS_H
 #define DS_H
 #include <list>
+#include <unordered_map>
 
 using namespace std;
 
@@ -27,7 +28,7 @@ private:
 	Data value;
 public:
 	vertex_(Data v){ setValue(v); };
-	Data getValue(){ return value; };
+	Data getValue() const { return value; };
 	void setValue(Data v){ value = v; };
 	// vertex == vertex
 	bool operator==(const vertex_<Data> &other) const{
@@ -43,6 +44,13 @@ public:
 	virtual void removeEdge(Data,Data) {};
 	virtual list<edge_<Data>> getEdges(vertex_<Data>){}; 
 	virtual list<vertex_<Data>> getVertexs(){};
+};
+
+template<class Data>
+struct vertex_hash {
+	size_t operator()( const vertex_<Data> &vertex) const{
+		return hash<Data>()(vertex.getValue());
+	}
 };
 
 #endif

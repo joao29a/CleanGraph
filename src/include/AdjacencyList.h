@@ -7,7 +7,7 @@ template <class Data>
 class AdjacencyList: public DataStructure<Data>{
 private:
 	typedef list<edge_<Data> > Edges;
-	typedef unordered_map<vertex_<Data>,hash<Data>,Edges> List;
+	typedef unordered_map<vertex_<Data>,Edges,vertex_hash<Data>> List;
 	List graph;
 public:
 	AdjacencyList(){};
@@ -26,7 +26,7 @@ void AdjacencyList<Data>::addVertex(Data vertexA){
 template <class Data>
 void AdjacencyList<Data>::addEdge(Data vertexA, Data vertexB, int weight){
 	edge_<Data> edge(vertexB,weight);
-	graph[vertexA].push_back(edge);
+	graph[vertex_<Data>(vertexA)].push_back(edge);
 }
 
 
