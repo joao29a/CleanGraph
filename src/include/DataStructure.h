@@ -2,6 +2,7 @@
 #define DS_H
 #include <list>
 #include <unordered_map>
+#include <string>
 
 using namespace std;
 
@@ -16,7 +17,7 @@ public:
 	void setVertex(Data v){ vertex = v; };
 	int getWeight(){ return weight; };
 	void setWeight(int w){ weight = w; };
-		
+
 	bool operator==(const edge_<Data> &other) const{
 		return (other.getVertex() == this->vertex);
 	}
@@ -26,6 +27,7 @@ template<class Data>
 class vertex_{
 private:
 	Data value;
+	string color;
 public:
 	vertex_(Data v){ setValue(v); };
 	Data getValue() const { return value; };
@@ -34,6 +36,8 @@ public:
 	bool operator==(const vertex_<Data> &other) const{
 		return (other.getValue() == this->value);
 	};
+	void setColor(string color) { this->color = color; };
+	string getColor() { return color; };
 };
 
 template<class Data>
@@ -43,7 +47,8 @@ public:
 	virtual void addEdge(Data,Data,int) {}; 
 	virtual void removeEdge(Data,Data) {};
 	virtual list<edge_<Data>> getEdges(vertex_<Data>){}; 
-	virtual list<vertex_<Data>> getVertexs(){};
+	virtual list<vertex_<Data>*> getVertexs(){};
+	virtual void setColor(vertex_<Data>,Data) {};
 };
 
 template<class Data>

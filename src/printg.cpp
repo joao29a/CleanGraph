@@ -16,14 +16,14 @@ void printEdges(edge_<string> edge){
 }
 
 void printg(GraphManipulator *gm){
-	list<vertex_<string>> vertexs = gm->getVertexs();
+	list<vertex_<string>*> vertexs = gm->getVertexs();
 
-	for (list<vertex_<string>>::iterator itVertexs = vertexs.begin(); 
+	for (list<vertex_<string>*>::iterator itVertexs = vertexs.begin(); 
 				itVertexs != vertexs.end(); itVertexs++){
 
-		list<edge_ <string>> edgesOf = gm->getEdges(*itVertexs);
+		list<edge_ <string>> edgesOf = gm->getEdges(*(*itVertexs));
 		
-		printVertex(*itVertexs);	
+		printVertex(*(*itVertexs));	
 	
 		for (list<edge_ <string>>::iterator 
 				itEdges = edgesOf.begin();
@@ -41,6 +41,7 @@ int main(void){
 	FileIO io("graphs/ex1");
 	io.fillStructureWithDataInFile(gm);
 	printg(gm);
-	//BFS(gm);
+	bfs<string>* teste;
+	teste->BFS(gm);
 	return 0;
 }

@@ -15,7 +15,8 @@ public:
 	void addEdge(Data,Data,int);
 	void removeEdge(Data,Data);
 	list<edge_<Data>> getEdges(vertex_<Data>);
-	list<vertex_<Data>> getVertexs();
+	list<vertex_<Data>*> getVertexs();
+	void setColor(vertex_<Data>,Data);
 };
 
 template <class Data>
@@ -41,11 +42,18 @@ list<edge_<Data>> AdjacencyList<Data>::getEdges(vertex_<Data> vertex){
 }
 
 template <class Data>
-list<vertex_<Data>> AdjacencyList<Data>::getVertexs(){
-	        list<vertex_<Data>> keys;
+list<vertex_<Data>*> AdjacencyList<Data>::getVertexs(){
+	        list<vertex_<Data>*> keys;
 
                 for(auto kv : graph) {
-                        keys.push_front(kv.first);
+			// * = const *
+			vertex_<Data>* v = &(kv.first);  
+                        keys.push_front(v);
                 }
                 return keys;
+}
+
+template <class Data>
+void AdjacencyList<Data>::setColor(vertex_<Data> vertex, Data color){
+	//graph[vertex.setColor(color)];
 }
