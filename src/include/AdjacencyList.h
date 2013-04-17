@@ -45,9 +45,10 @@ template <class Data>
 list<vertex_<Data>*> AdjacencyList<Data>::getVertexs(){
 	        list<vertex_<Data>*> keys;
 
-                for(auto kv : graph) {
+                for(auto& kv : graph) {
 			// * = const *
-			vertex_<Data>* v = &(kv.first);  
+			const vertex_<Data>* p = &(kv.first);
+			vertex_<Data>* v = const_cast<vertex_<Data>*>(p);
                         keys.push_front(v);
                 }
                 return keys;
