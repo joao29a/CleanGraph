@@ -15,7 +15,8 @@ public:
 	void removeEdge(string,string);
 	list<edge_<string>> getEdges(vertex_<string>);
 	list<vertex_<string>*> getVertexs();
-	list<vertex_<string>*> getVertex(string);
+	vertex_<string>* getVertexAttributes(string);
+	
 };
 
 #endif

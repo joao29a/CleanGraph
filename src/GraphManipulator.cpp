@@ -22,6 +22,7 @@ void GraphManipulator::removeEdge(string vertexA,string vertexB){
 	DS->removeEdge(vertexA,vertexB);
 }
 
-void GraphManipulator::setColor(vertex_<string> vertex,string color){
-	DS->setColor(vertex,color);
+vertex_<string>* GraphManipulator::getVertexAttributes(string vertex){
+	return DS->getVertex(vertex);
 }
+

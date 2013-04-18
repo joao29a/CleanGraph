@@ -30,6 +30,7 @@ private:
 	string color;
 	int distance;
 public:
+	vertex_(){ setValue("NULL"); };
 	vertex_(Data v){ setValue(v); };
 	Data getValue() const { return value; };
 	void setValue(Data v){ value = v; };
@@ -51,14 +52,7 @@ public:
 	virtual void removeEdge(Data,Data) {};
 	virtual list<edge_<Data>> getEdges(vertex_<Data>){}; 
 	virtual list<vertex_<Data>*> getVertexs(){};
-	virtual list<vertex_<Data>*> getVertex(Data) {};
-};
-
-template<class Data>
-struct vertex_hash {
-	size_t operator()( const vertex_<Data> &vertex) const{
-		return hash<Data>()(vertex.getValue());
-	}
+	virtual vertex_<Data>* getVertex(Data){};
 };
 
 #endif
