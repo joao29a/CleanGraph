@@ -41,7 +41,7 @@ int main(void){
 	FileIO io("graphs/ex1");
 	io.fillStructureWithDataInFile(gm);
 	printg(gm);
-	bfs<string>* teste;
-	teste->BFS(gm);
+	bfs teste;
+	teste.BFS(gm);
 	return 0;
 }

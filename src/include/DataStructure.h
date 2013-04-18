@@ -28,6 +28,7 @@ class vertex_{
 private:
 	Data value;
 	string color;
+	int distance;
 public:
 	vertex_(Data v){ setValue(v); };
 	Data getValue() const { return value; };
@@ -38,6 +39,8 @@ public:
 	};
 	void setColor(string color) { this->color = color; };
 	string getColor() { return color; };
+	void setDistance(int distance) { this->distance = distance; };
+	int getDistance(){ return distance; };
 };
 
 template<class Data>
@@ -48,7 +51,7 @@ public:
 	virtual void removeEdge(Data,Data) {};
 	virtual list<edge_<Data>> getEdges(vertex_<Data>){}; 
 	virtual list<vertex_<Data>*> getVertexs(){};
-	virtual void setColor(vertex_<Data>,Data) {};
+	virtual list<vertex_<Data>*> getVertex(Data) {};
 };
 
 template<class Data>

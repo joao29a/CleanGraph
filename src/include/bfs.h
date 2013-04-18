@@ -1,47 +1,33 @@
 #include "DataStructure.h"
 #include "GraphManipulator.h"
 #include <list>
+#include <string>
 
-template <class Data>
-class bfs: public vertex_<Data>{
-private:
-	string color;
-	int distance;
-	vertex_<Data> father;
+class bfs{
 public:
 	void BFS(GraphManipulator*);
-	void setColor(string color) { this.color = color; };
-	void setDistance(int distance) { this.distance = distance; };
-	void setFather(vertex_<Data> son) { father = son; };
-	string getColor() { return color; };
-	int getDistance() { return distance; };
 };
 
-template<class Data>
-void bfs<Data>::BFS(GraphManipulator *gm){
-	list<vertex_<string>*> Vertex = gm->getVertexs();
+void bfs::BFS(GraphManipulator *gm){
+	list<vertex_<string>*> Vertexs = gm->getVertexs();
 	list<vertex_<string>*>::iterator itVertex;
-	for (itVertex = Vertex.begin(); itVertex != Vertex.end(); itVertex++){
+	for (itVertex = Vertexs.begin(); itVertex != Vertexs.end(); itVertex++){
 		(*itVertex)->setColor("white");
-		cout << "Vertex " << (*itVertex)->getColor() << endl;
-	//	gm->setColor(*itVertex,"white");
-	//	(*itVertex).setDistance(0);
+		(*itVertex)->setDistance(0);
 	}
-	Vertex = gm->getVertexs();
-	//list<vertex_*<string>>::iterator itVertex;
-	for (itVertex = Vertex.begin(); itVertex != Vertex.end(); itVertex++){
-		cout << "Vertex " << (*itVertex)->getColor() << endl;
-	}
-	/*for (itVertex = Vertex.begin(); itVertex != Vertex.end(); itVertex++){
-		cout << "Vertex " << itVertex.getValue() << endl;
-		cout << " cor: " << itVertex.getColor() << endl;
-		cout << " distancia: " << itVertex.getDistance() << endl;
-	}
-	itVertex = Vertex.begin();
+	itVertex = Vertexs.begin();
 	(*itVertex)->setColor("gray");
 	(*itVertex)->setDistance(0);
-	list<bfs<string>> Q;
-	Q.push_back(itVertex.first);
-	while (!Q.empty()){	
-	*/
+	
+	list<vertex_<string>> Q;
+	Q.push_back(*(*itVertex));
+	while (!Q.empty()){
+		vertex_<string> value = Q.front();
+		Q.pop_front();
+		list<edge_<string>> edges = gm->getEdges(value);
+		list<edge_<string>>::iterator itEdges;
+		for (itEdges = edges.begin(); itEdges!=edges.end(); itEdges++){
+			list<vertex_<string>*> vertex = gm->getVertex((*itEdges).getVertex());
+		}	
+	}
 }

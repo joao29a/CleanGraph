@@ -15,7 +15,7 @@ public:
 	void removeEdge(string,string);
 	list<edge_<string>> getEdges(vertex_<string>);
 	list<vertex_<string>*> getVertexs();
-	void setColor(vertex_<string>, string);
+	list<vertex_<string>*> getVertex(string);
 };
 
 #endif
