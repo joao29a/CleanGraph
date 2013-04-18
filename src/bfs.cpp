@@ -32,12 +32,7 @@ void bfs::BFS(GraphManipulator *gm, vertex_<string>* v){
 				Q.push_back(vertexAdj);
 			}
 		}
+		cout << v->getValue() << " " << value->getValue() << " " << value->getDistance() << endl;
 		value->setColor("black");
-	}
-	Vertexs = gm->getVertexs();
-	cout << endl;
-	for (itVertex = Vertexs.begin(); itVertex != Vertexs.end(); itVertex++){
-		cout << "vertex " << (*itVertex)->getValue() << ": " << (*itVertex)->getDistance() 
-				<< " " << (*itVertex)->getColor() << endl;
 	}
 }

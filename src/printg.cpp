@@ -19,15 +19,15 @@ void printg(GraphManipulator *gm){
 	list<vertex_<string>*> vertexs = gm->getVertexs();
 
 	for (list<vertex_<string>*>::iterator itVertexs = vertexs.begin(); 
-				itVertexs != vertexs.end(); itVertexs++){
+			itVertexs != vertexs.end(); itVertexs++){
 
 		list<edge_ <string>> edgesOf = gm->getEdges(*(*itVertexs));
-		
+
 		printVertex(*(*itVertexs));	
-	
+
 		for (list<edge_ <string>>::iterator 
 				itEdges = edgesOf.begin();
-                                itEdges != edgesOf.end(); itEdges++){
+				itEdges != edgesOf.end(); itEdges++){
 
 			printEdges(*itEdges);
 		}
@@ -35,13 +35,14 @@ void printg(GraphManipulator *gm){
 	}
 }
 
-int main(void){
+int main(int argc, char *argv[]){
 	AdjacencyList<string>* List = new AdjacencyList<string>();
-        GraphManipulator* gm = new GraphManipulator(List);
-	FileIO io("graphs/ex1");
-	string beginVertex = io.fillStructureWithDataInFile(gm);
-	printg(gm);
-	bfs a;
-	a.BFS(gm,gm->getVertexAttributes(beginVertex));
+	GraphManipulator* gm = new GraphManipulator(List);
+	for (int i = 2; i < argc; i++){
+		FileIO io(argv[i]);
+		string beginVertex = io.fillStructureWithDataInFile(gm);
+		bfs a;
+		a.BFS(gm,gm->getVertexAttributes(beginVertex));
+	}
 	return 0;
 }
