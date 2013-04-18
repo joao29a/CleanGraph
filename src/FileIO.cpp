@@ -26,7 +26,7 @@ void FileIO::get_file_contents(const char *filename)
 
 void FileIO::processVetex(GraphManipulator* g){
 	for (vector<string>::iterator it = vertex.begin(); it!=vertex.end(); ++it) {
-    		g->addVertex(*it);
+		g->addVertex(*it);
 	}
 }
 
@@ -40,8 +40,9 @@ void FileIO::processEdges(GraphManipulator* g){
 	}
 }
 
-void FileIO::fillStructureWithDataInFile(GraphManipulator* g){
+string FileIO::fillStructureWithDataInFile(GraphManipulator* g){
 	processVetex(g);
 	processEdges(g);
+	return vertex.front();
 }
 

@@ -29,6 +29,7 @@ private:
 	Data value;
 	string color;
 	int distance;
+	Data father;
 public:
 	vertex_(){ setValue("NULL"); };
 	vertex_(Data v){ setValue(v); };
@@ -42,6 +43,8 @@ public:
 	string getColor() { return color; };
 	void setDistance(int distance) { this->distance = distance; };
 	int getDistance(){ return distance; };
+	void setFather(Data father) { this->father = father;};
+	Data getFather(){ return father; };
 };
 
 template<class Data>

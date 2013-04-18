@@ -20,7 +20,7 @@ public:
 		get_file_contents(fileName);
 	}
 	
-	void fillStructureWithDataInFile(GraphManipulator*);
+	string fillStructureWithDataInFile(GraphManipulator*);
 };
 
 #endif

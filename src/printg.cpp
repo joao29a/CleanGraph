@@ -39,9 +39,9 @@ int main(void){
 	AdjacencyList<string>* List = new AdjacencyList<string>();
         GraphManipulator* gm = new GraphManipulator(List);
 	FileIO io("graphs/ex1");
-	io.fillStructureWithDataInFile(gm);
+	string beginVertex = io.fillStructureWithDataInFile(gm);
 	printg(gm);
-	bfs teste;
-	teste.BFS(gm);
+	bfs a;
+	a.BFS(gm,gm->getVertexAttributes(beginVertex));
 	return 0;
 }
