@@ -30,6 +30,7 @@ private:
 	string color;
 	int distance;
 	Data father;
+	int key;
 public:
 	vertex_(){ setValue("NULL"); };
 	vertex_(Data v){ setValue(v); };
@@ -39,12 +40,20 @@ public:
 	bool operator==(const vertex_<Data> &other) const{
 		return (other.getValue() == this->value);
 	};
+	
+
 	void setColor(string color) { this->color = color; };
 	string getColor() { return color; };
 	void setDistance(int distance) { this->distance = distance; };
 	int getDistance(){ return distance; };
 	void setFather(Data father) { this->father = father;};
 	Data getFather(){ return father; };
+	void setKey(int key){ this->key = key;};
+	int getKey() const { return key;};
+
+	bool operator<(const vertex_<Data> &other) const{
+		return (this->key > other.getKey());
+	};
 };
 
 template<class Data>
