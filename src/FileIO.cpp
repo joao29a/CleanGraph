@@ -30,20 +30,23 @@ void FileIO::processVetex(GraphManipulator* g){
 	}
 }
 
-void FileIO::processEdges(GraphManipulator* g){
+void FileIO::processEdges(GraphManipulator* g, string type){
 	char a[80];
 	char b[80];
 	char c[80];
 	for (vector<string>::iterator it = edges.begin(); it!=edges.end(); ++it) {
 		sscanf((*it).c_str(),"%s %s %s",a,b,c);
 		g->addEdge(a,b,atoi(c));
-		g->addEdge(b,a,atoi(c));
+		while (type=="notOriented"){
+			g->addEdge(b,a,atoi(c));
+			break;
+		}
 	}
 }
 
-string FileIO::fillStructureWithDataInFile(GraphManipulator* g){
+string FileIO::fillStructureWithDataInFile(GraphManipulator* g, string type){
 	processVetex(g);
-	processEdges(g);
+	processEdges(g,type);
 	return vertex.front();
 }
 

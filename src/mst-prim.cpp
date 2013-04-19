@@ -15,10 +15,8 @@ void prim::mstPrim(GraphManipulator* gm, vertex_<string>* v){
 		Q->add(*(*itVertexs));
 	}
 	Q->heapMin();
-	int total=0;
 	while (!Q->empty()){
 		vertex_<string> u = Q->extractMin();
-		total+=u.getKey();
 		list<edge_<string>> edges = gm->getEdges(u);
 		list<edge_<string>>::iterator itEdges;
 		for (itEdges = edges.begin(); itEdges != edges.end(); itEdges++){
@@ -32,5 +30,9 @@ void prim::mstPrim(GraphManipulator* gm, vertex_<string>* v){
 			}
 		}
 	}
-	cout << total << endl;
+	Vertexs = gm->getVertexs();
+	for (itVertexs = Vertexs.begin() ; itVertexs != Vertexs.end(); itVertexs++){
+		if ((*itVertexs)->getFather()!="NULL")
+			cout << (*itVertexs)->getValue() << " " << (*itVertexs)->getFather() << endl;
+	}
 }

@@ -39,9 +39,21 @@ void printg(GraphManipulator *gm){
 int main(int argc, char *argv[]){
 	AdjacencyList<string>* List = new AdjacencyList<string>();
 	GraphManipulator* gm = new GraphManipulator(List);
-	FileIO io(argv[2]);
-	string beginVertex = io.fillStructureWithDataInFile(gm);
-	prim a;
-	a.mstPrim(gm,gm->getVertexAttributes(beginVertex));
+	string bfsearch = "bfs";
+	string mstree = "mst";
+	while (argv[1]==bfsearch){	
+		FileIO io(argv[2]);
+		string beginVertex = io.fillStructureWithDataInFile(gm,"oriented");
+		bfs a;
+		a.BFS(gm,gm->getVertexAttributes(beginVertex));
+		break;
+	}
+	while (argv[1]==mstree){
+		FileIO io(argv[2]);
+		string beginVertex = io.fillStructureWithDataInFile(gm,"notOriented");
+		prim a;
+		a.mstPrim(gm,gm->getVertexAttributes(beginVertex));
+		break;
+	}
 	return 0;
 }
