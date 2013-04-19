@@ -31,6 +31,8 @@ private:
 	int distance;
 	Data father;
 	int key;
+	int input;
+	int output;
 public:
 	vertex_(){ setValue("NULL"); };
 	vertex_(Data v){ setValue(v); };
@@ -52,8 +54,13 @@ public:
 	int getKey() const { return key;};
 
 	bool operator<(const vertex_<Data> &other) const{
-		return (this->key > other.getKey());
+		return (other.getKey() < this->key);
 	};
+	
+	void setInput(int input) { this->input = input; };
+	int getInput() { return input; };
+	void setOutput(int output) { this->output = output; };
+	int getOutput() { return output; };
 };
 
 template<class Data>
