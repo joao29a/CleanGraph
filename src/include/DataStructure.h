@@ -38,7 +38,6 @@ public:
 	vertex_(Data v){ setValue(v); };
 	Data getValue() const { return value; };
 	void setValue(Data v){ value = v; };
-	// vertex == vertex
 	bool operator==(const vertex_<Data> &other) const{
 		return (other.getValue() == this->value);
 	};
@@ -56,11 +55,12 @@ public:
 	bool operator<(const vertex_<Data> &other) const{
 		return (other.getKey() < this->key);
 	};
-	
+
+	void setOutput(int output) { this->output = output; };
+	int getOutput() const { return output; };
+
 	void setInput(int input) { this->input = input; };
 	int getInput() { return input; };
-	void setOutput(int output) { this->output = output; };
-	int getOutput() { return output; };
 };
 
 template<class Data>

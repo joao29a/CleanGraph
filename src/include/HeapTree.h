@@ -20,7 +20,6 @@ public:
 	bool search(vertex_<Data>);
 	bool empty();
 	void refreshHeap(vertex_<Data>);
-	void print();
 };
 
 template <class Data>
@@ -56,14 +55,4 @@ template <class Data>
 void HeapTree<Data>::refreshHeap(vertex_<Data> vertexA){	
 	replace(vectorVertex.begin(),vectorVertex.end(),vertexA,vertexA);
 }
-
-template <class Data>
-void HeapTree<Data>::print(){
-	typename vector<vertex_<Data>>::iterator it;
-	for (it=vectorVertex.begin();it!=vectorVertex.end();it++){
-		cout << (*it).getValue() << " " << (*it).getKey() << endl;
-	}
-	cout << endl;
-}
-
 #endif

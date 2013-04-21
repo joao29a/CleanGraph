@@ -12,7 +12,6 @@ private:
 	list<vertex_<string>>::iterator itList;
 protected:
 	void setOutput_stamp(vertex_<string>*);
-	void print();
 public:
 	list<vertex_<string>> topologicalSort(GraphManipulator*);
 };

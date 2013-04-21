@@ -5,13 +5,15 @@
 void prim::mstPrim(GraphManipulator* gm, vertex_<string>* v){
 	list<vertex_<string>*> Vertexs = gm->getVertexs();
 	list<vertex_<string>*>::iterator itVertexs;
-	for (itVertexs = Vertexs.begin(); itVertexs != Vertexs.end(); itVertexs++){
+	for (itVertexs = Vertexs.begin(); itVertexs != Vertexs.end(); 
+						itVertexs++){
 		(*itVertexs)->setKey(numeric_limits<int>::max());
 		(*itVertexs)->setFather("NULL");
 	}
 	v->setKey(0);
 	HeapTree<string>* Q = new HeapTree<string>();
-	for (itVertexs = Vertexs.begin(); itVertexs != Vertexs.end(); itVertexs++){
+	for (itVertexs = Vertexs.begin(); itVertexs != Vertexs.end(); 
+						itVertexs++){
 		Q->add(*(*itVertexs));
 	}
 	Q->heapMin();
@@ -22,7 +24,8 @@ void prim::mstPrim(GraphManipulator* gm, vertex_<string>* v){
 		for (itEdges = edges.begin(); itEdges != edges.end(); itEdges++){
 			vertex_<string>* vertexAdj = 
 				gm->getVertexAttributes((*itEdges).getVertex());
-			if (Q->search((*vertexAdj)) && (*itEdges).getWeight() < vertexAdj->getKey()){
+			if (Q->search((*vertexAdj)) && 
+					(*itEdges).getWeight() < vertexAdj->getKey()){
 				(*vertexAdj).setFather(u.getValue());
 				(*vertexAdj).setKey((*itEdges).getWeight());
 				Q->refreshHeap((*vertexAdj));
@@ -31,8 +34,10 @@ void prim::mstPrim(GraphManipulator* gm, vertex_<string>* v){
 		}
 	}
 	Vertexs = gm->getVertexs();
-	for (itVertexs = Vertexs.begin() ; itVertexs != Vertexs.end(); itVertexs++){
+	for (itVertexs = Vertexs.begin() ; itVertexs != Vertexs.end(); 
+						itVertexs++){
 		if ((*itVertexs)->getFather()!="NULL")
-			cout << (*itVertexs)->getValue() << " " << (*itVertexs)->getFather() << endl;
+			cout << (*itVertexs)->getValue() << " " << 
+					(*itVertexs)->getFather() << endl;
 	}
 }

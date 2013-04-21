@@ -5,17 +5,16 @@
 #include "DataStructure.h"
 
 class dfs{
-private:
-	int time;
-
 protected:
-	void DFS_visit(GraphManipulator*, vertex_<string>*);
-	virtual void setInput_stamp(vertex_<string>*);
+	list<vertex_<string>*> Vertexs;
+	list<vertex_<string>*>::iterator itVertexs;
+	int time;
 	virtual void setOutput_stamp(vertex_<string>*);
+	virtual void mainLoop(GraphManipulator*);
+	void DFS_visit(GraphManipulator*, vertex_<string>*);
 
 public:
 	void DFS(GraphManipulator*);
-	void print(GraphManipulator*);
 };
 
 #endif
