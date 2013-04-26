@@ -6,14 +6,18 @@
 #include "GraphManipulator.h"
 #include <list>
 
-class ts: public dfs{
-private:
-	list<vertex_<string>> listVertex;
-	list<vertex_<string>>::iterator itList;
-protected:
-	void setOutput_stamp(vertex_<string>*);
-public:
-	list<vertex_<string>> topologicalSort(GraphManipulator*);
+class ts:public dfs {
+  private:
+    list < vertex_ < string >> listVertex;
+    list < vertex_ < string >>::iterator itList;
+  protected:
+    void setOutput_stamp(vertex_ < string > *);
+  public:
+
+
+
+
+     list < vertex_ < string >> topologicalSort(GraphManipulator *);
 };
 
 #endif

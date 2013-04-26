@@ -5,12 +5,19 @@
 #include "GraphManipulator.h"
 #include "DataStructure.h"
 
-class prim{
-private:
-	void initVertexs(list<vertex_<string>*>);
-	void fillHeapTree(list<vertex_<string>*>, HeapTree<string>*);
-public:
-	list<vertex_<string>*> mstPrim(GraphManipulator*, vertex_<string>*);
+class prim {
+  private:
+    void initVertexs(list < vertex_ < string > *>);
+    void fillHeapTree(list < vertex_ < string > *>, HeapTree < string > *);
+  public:
+
+
+
+
+
+
+     list < vertex_ < string > *>mstPrim(GraphManipulator *,
+					 vertex_ < string > *);
 };
 
 #endif

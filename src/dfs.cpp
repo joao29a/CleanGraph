@@ -2,58 +2,63 @@
 #include <list>
 #include <iostream>
 
-void dfs::DFS(GraphManipulator* gm){
+void
+ dfs::DFS(GraphManipulator * gm)
+{
 
-	Vertexs = gm->getVertexs();
+    Vertexs = gm->getVertexs();
 
-	for (itVertexs = Vertexs.begin(); itVertexs != Vertexs.end();
-						itVertexs++){
-		(*itVertexs)->setColor("white");
-		(*itVertexs)->setFather("NULL");
-	}
+    for (itVertexs = Vertexs.begin(); itVertexs != Vertexs.end();
+	 itVertexs++) {
+	(*itVertexs)->setColor("white");
+	(*itVertexs)->setFather("NULL");
+    }
 
-	time = 0;
-	mainLoop(gm);
+    time = 0;
+    mainLoop(gm);
 }
 
-void dfs::DFS_visit(GraphManipulator* gm, vertex_<string>* u){
-	time++;
-	
-	u->setInput(time);
-	u->setColor("gray");
-	
-	list<edge_<string>> Edges = gm->getEdges((*u));
-	list<edge_<string>>::iterator itEdges;
+void dfs::DFS_visit(GraphManipulator * gm, vertex_ < string > *u)
+{
+    time++;
 
-	for (itEdges = Edges.begin(); itEdges != Edges.end(); itEdges++){
+    u->setInput(time);
+    u->setColor("gray");
 
-		vertex_<string>* vertexAdj =
-			gm->getVertexAttributes((*itEdges).getVertex());
+    list < edge_ < string >> Edges = gm->getEdges((*u));
+    list < edge_ < string >>::iterator itEdges;
 
-		if (vertexAdj->getColor() == "white"){
-			vertexAdj->setFather(u->getValue());
-			DFS_visit(gm,vertexAdj);
-		}
+    for (itEdges = Edges.begin(); itEdges != Edges.end(); itEdges++) {
 
-	}
-	u->setColor("black");
-	time++;
-	setOutput_stamp(u);
-}
+	vertex_ < string > *vertexAdj =
+	    gm->getVertexAttributes((*itEdges).getVertex());
 
-void dfs::mainLoop(GraphManipulator* gm){
-
-	for (itVertexs = Vertexs.begin(); itVertexs != Vertexs.end();
-						itVertexs++){
-
-		if ((*itVertexs)->getColor() == "white"){
-			DFS_visit(gm,(*itVertexs));	
-		}
-
+	if (vertexAdj->getColor() == "white") {
+	    vertexAdj->setFather(u->getValue());
+	    DFS_visit(gm, vertexAdj);
 	}
 
+    }
+    u->setColor("black");
+    time++;
+    setOutput_stamp(u);
 }
 
-void dfs::setOutput_stamp(vertex_<string>* u){
-	u->setOutput(time);
+void dfs::mainLoop(GraphManipulator * gm)
+{
+
+    for (itVertexs = Vertexs.begin(); itVertexs != Vertexs.end();
+	 itVertexs++) {
+
+	if ((*itVertexs)->getColor() == "white") {
+	    DFS_visit(gm, (*itVertexs));
+	}
+
+    }
+
+}
+
+void dfs::setOutput_stamp(vertex_ < string > *u)
+{
+    u->setOutput(time);
 }

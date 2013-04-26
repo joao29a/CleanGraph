@@ -5,11 +5,11 @@
 #include "GraphManipulator.h"
 #include "DataStructure.h"
 
-void printVertex(vertex_<string> vertex);
+void printVertex(vertex_ < string > vertex);
 
-void printEdges(edge_<string> edge);
+void printEdges(edge_ < string > edge);
 
-void printg(GraphManipulator* gm);
+void printg(GraphManipulator * gm);
 
-void printMST(list<vertex_<string>*>);
+void printMST(list < vertex_ < string > *>);
 #endif

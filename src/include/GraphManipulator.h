@@ -5,18 +5,20 @@
 
 using namespace std;
 
-class GraphManipulator{
-private:
-	DataStructure<string>* DS;
-public:
-	GraphManipulator(DataStructure<string> *ds) { this->DS = ds; };
-	void addVertex(string);
-	void addEdge(string, string, int);
-	void removeEdge(string,string);
-	list<edge_<string>> getEdges(vertex_<string>);
-	list<vertex_<string>*> getVertexs();
-	vertex_<string>* getVertexAttributes(string);
-	
+class GraphManipulator {
+  private:
+    DataStructure < string > *DS;
+  public:
+    GraphManipulator(DataStructure < string > *ds) {
+	this->DS = ds;
+    };
+    void addVertex(string);
+    void addEdge(string, string, int);
+    void removeEdge(string, string);
+    list < edge_ < string >> getEdges(vertex_ < string >);
+    list < vertex_ < string > *>getVertexs();
+    vertex_ < string > *getVertexAttributes(string);
+
 };
 
 #endif
