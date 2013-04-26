@@ -3,38 +3,61 @@
 #include "include/bfs.h"
 #include "include/mst-prim.h"
 #include "include/ts.h"
+#include "include/printg.h"
 #include "include/scc.h"
+#include <cstring>
+
+#define bfsearch "bfs"
+#define tsort "ts"
+#define sccomponent "scc"
+#define mstree "mst"
 
 int main(int argc, char *argv[]){
+
 	AdjacencyList<string>* List = new AdjacencyList<string>();
 	GraphManipulator* gm = new GraphManipulator(List);
-	string bfsearch = "bfs";
-	string tsort = "ts";
-	string sccomponent = "scc";
-	string mstree = "mst";
+	
 	FileIO io(argv[2]);
-	if (argv[1]==mstree){
+	if (strcmp(argv[1],mstree) == 0){
+
 		string beginVertex = io.fillStructureWithDataInFile(gm,"notOriented");
-		prim a;
-		a.mstPrim(gm,gm->getVertexAttributes(beginVertex));
+		prim primAlgorithm;
+
+		list<vertex_<string>*> result;
+		result = 
+		    primAlgorithm.mstPrim(gm,gm->getVertexAttributes(beginVertex));
+
+		printMST(result);
+
+		return 0;
 	}
+
 	string beginVertex = io.fillStructureWithDataInFile(gm,"oriented");
-	if (argv[1]==bfsearch){	
+
+	if (strcmp(argv[1],bfsearch) == 0){	
+
 		bfs a;
 		a.BFS(gm,gm->getVertexAttributes(beginVertex));
-	}
-	else if (argv[1]==tsort){
+
+	}else if (strcmp(argv[1],tsort) == 0){
+
 		list<vertex_<string>> saida;
 		list<vertex_<string>>::iterator itSaida;
 		ts a;
 		saida = a.topologicalSort(gm);
+
 		for (itSaida = saida.begin(); itSaida != saida.end(); itSaida++){
 			cout << (*itSaida).getValue() << endl;
 		}
+
 	}
-	else if (argv[1]==sccomponent){
+	else if (strcmp(argv[1],sccomponent) == 0){
+
 		scc a;
 		a.stronglyComponent(gm);	
+
 	}
 	return 0;
 }
+
+

@@ -10,6 +10,7 @@ void FileIO::get_file_contents(const char *filename)
   bool isVertex = true;
 
   while (getline(infile, line, '\n')){
+
 	if(line == "#"){
 		isVertex = false;	
 	}else{
@@ -19,21 +20,25 @@ void FileIO::get_file_contents(const char *filename)
 			edges.push_back (line);
 		}
 	}
+
   }
 
 }
 
 
 void FileIO::processVetex(GraphManipulator* g){
+
 	for (vector<string>::iterator it = vertex.begin(); it!=vertex.end(); ++it) {
 		g->addVertex(*it);
 	}
+
 }
 
 void FileIO::processEdges(GraphManipulator* g, string type){
 	char a[80];
 	char b[80];
 	char c[80];
+
 	for (vector<string>::iterator it = edges.begin(); it!=edges.end(); ++it) {
 		sscanf((*it).c_str(),"%s %s %s",a,b,c);
 		g->addEdge(a,b,atoi(c));
@@ -47,6 +52,6 @@ void FileIO::processEdges(GraphManipulator* g, string type){
 string FileIO::fillStructureWithDataInFile(GraphManipulator* g, string type){
 	processVetex(g);
 	processEdges(g,type);
-	return vertex.front();
+	return vertex.front(); 
 }
 

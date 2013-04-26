@@ -11,4 +11,5 @@ void printEdges(edge_<string> edge);
 
 void printg(GraphManipulator* gm);
 
+void printMST(list<vertex_<string>*>);
 #endif
