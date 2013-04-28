@@ -29,8 +29,7 @@ void prim::fillHeapTree(list < vertex_ < string > *>Vertexs,
 
 }
 
-list < vertex_ < string > *>prim::mstPrim(GraphManipulator * gm,
-					  vertex_ < string > *root)
+void prim::mstPrim(GraphManipulator * gm, vertex_ < string > *root)
 {
     list < vertex_ < string > *>Vertexs = gm->getVertexs();
 
@@ -65,7 +64,21 @@ list < vertex_ < string > *>prim::mstPrim(GraphManipulator * gm,
 	    }
 	}
     }
+}
 
-    Vertexs = gm->getVertexs();
-    return Vertexs;
+void prim::printMST(GraphManipulator * gm)
+{
+
+    list < vertex_ < string > *>Vertexs = gm->getVertexs();
+    
+    list < vertex_ < string > *>::iterator itVertexs;
+
+    for (itVertexs = Vertexs.begin(); itVertexs != Vertexs.end();
+	 itVertexs++) {
+
+	if ((*itVertexs)->getFather() != "NULL")
+	    cout << (*itVertexs)->getValue() << " " <<
+		(*itVertexs)->getFather() << endl;
+    }
+
 }

@@ -10,14 +10,8 @@ class prim {
     void initVertexs(list < vertex_ < string > *>);
     void fillHeapTree(list < vertex_ < string > *>, HeapTree < string > *);
   public:
-
-
-
-
-
-
-     list < vertex_ < string > *>mstPrim(GraphManipulator *,
-					 vertex_ < string > *);
+    void mstPrim(GraphManipulator *, vertex_ < string > *);
+    void printMST(GraphManipulator *);
 };
 
 #endif
