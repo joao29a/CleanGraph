@@ -1,7 +1,6 @@
 #include "include/scc.h"
 #include "include/dfs.h"
 #include "include/AdjacencyList.h"
-#include "include/printg.h"
 #include <list>
 #include <iostream>
 
